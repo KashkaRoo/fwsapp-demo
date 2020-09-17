@@ -35,7 +35,7 @@ export default class Search extends React.Component {
   handleChange = (k, v) => this.setState({ [k]: v });
 
   async apiCall(database) {
-    var address = "http://192.168.1.18:9000/"
+    var address = "https://fwsfl-demo.herokuapp.com/"
     await fetch(address + database + "/getFields")
       .then((response) => {
         return response.json();

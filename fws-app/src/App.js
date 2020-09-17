@@ -15,7 +15,7 @@ class App extends Component {
       loading: false,
       database: "Herpetology",
       organismFieldList: [],
-      APIURL: "http://192.168.1.18:9000/",
+      APIURL: "https://fwsfl-demo.herokuapp.com/",
       data: [],
       fields: [],
       lastWD: "",
