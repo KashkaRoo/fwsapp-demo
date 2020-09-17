@@ -8,7 +8,7 @@ var bodyParser = require('body-parser')
 var fileUpload = require('express-fileupload');
 var fs = require('fs');
 
-var indexRouter = require('./routes/index');
+//var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var herpRouter = require('./routes/herpRoute');
 var xyRoute = require('./routes/xyRoute');
@@ -29,7 +29,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static('public'));
 
-app.use('/', indexRouter);
+//app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/herpetology', herpRouter);
 app.use('/xylarium', xyRoute);
@@ -143,5 +143,12 @@ app.get('/deleteFile/:database/:ID/:fileName', function(req, res){
       message: 'File is deleted',
   })
 });
+
+app.use(express.static(path.join(__dirname, '/fws-app/build')))
+
+app.get('/*', function(req, res, next) {
+  res.sendFile(path.join(__dirname + '/fws-app/build/index.html'))
+});
+
 
 module.exports = app;
